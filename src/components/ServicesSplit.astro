@@ -1,0 +1,49 @@
+﻿---
+const { foundation, ops } = Astro.props;
+---
+
+<section class="py-16" id="services">
+	<div class="mx-auto max-w-6xl px-6">
+		<div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+			<div>
+				<p class="text-sm font-semibold uppercase tracking-[0.3em] text-[color:var(--c-muted)]">Services</p>
+				<h2 class="mt-3 text-3xl font-semibold md:text-4xl">
+					Two layers: a strong site, then calmer ops.
+				</h2>
+			</div>
+			<p class="max-w-sm text-sm text-[color:var(--c-muted)]">
+				Designed for self-employed professionals who want credibility, speed, and less admin.
+			</p>
+		</div>
+
+		<div class="mt-10 grid gap-6 lg:grid-cols-2">
+			<article class="rounded-[24px] border border-[color:var(--c-border)] bg-[color:var(--c-surface)] p-6 shadow-[0_30px_65px_-55px_rgba(15,23,42,0.55)]">
+				<p class="text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--c-muted)]">Web Foundation</p>
+				<h3 class="mt-3 text-2xl font-semibold">{foundation.title}</h3>
+				<p class="mt-2 text-sm text-[color:var(--c-muted)]">{foundation.description}</p>
+				<ul class="mt-5 space-y-2 text-sm text-[color:var(--c-text)]">
+					{foundation.bullets.map((bullet) => (
+						<li class="flex gap-2">
+							<span class="mt-2 h-1.5 w-1.5 rounded-full bg-[color:var(--c-primary)]" aria-hidden="true"></span>
+							<span>{bullet}</span>
+						</li>
+					))}
+				</ul>
+			</article>
+
+			<article class="rounded-[24px] border border-[color:var(--c-border)] bg-[color:var(--c-surface)] p-6 shadow-[0_30px_65px_-55px_rgba(15,23,42,0.55)]">
+				<p class="text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--c-muted)]">Operations Layer</p>
+				<h3 class="mt-3 text-2xl font-semibold">{ops.title}</h3>
+				<p class="mt-2 text-sm text-[color:var(--c-muted)]">{ops.description}</p>
+				<ul class="mt-5 space-y-2 text-sm text-[color:var(--c-text)]">
+					{ops.bullets.map((bullet) => (
+						<li class="flex gap-2">
+							<span class="mt-2 h-1.5 w-1.5 rounded-full bg-[color:var(--c-accent)]" aria-hidden="true"></span>
+							<span>{bullet}</span>
+						</li>
+					))}
+				</ul>
+			</article>
+		</div>
+	</div>
+</section>

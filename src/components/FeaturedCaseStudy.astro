@@ -1,0 +1,69 @@
+﻿---
+const { examples, note } = Astro.props;
+---
+
+<section class="py-16" id="work">
+	<div class="mx-auto max-w-6xl px-6">
+		<div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
+			<div>
+				<p class="text-sm font-semibold uppercase tracking-[0.3em] text-[color:var(--c-muted)]">Work</p>
+				<h2 class="mt-3 text-3xl font-semibold md:text-4xl">
+					Proof of outcomes for self-employed teams.
+				</h2>
+			</div>
+			<p class="max-w-sm text-sm text-[color:var(--c-muted)]">
+				Realistic examples until your case studies are published.
+			</p>
+		</div>
+
+		<div class="mt-10 grid gap-6">
+			{examples.map((item) => (
+				<article class="rounded-[24px] border border-[color:var(--c-border)] bg-[color:var(--c-surface)] p-6 shadow-[0_30px_70px_-60px_rgba(15,23,42,0.6)] md:p-8">
+					<p class="text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--c-muted)]">Example</p>
+					<h3 class="mt-3 text-xl font-semibold">{item.title}</h3>
+					<p class="mt-2 text-sm text-[color:var(--c-muted)]">{item.summary}</p>
+					<ul class="mt-4 space-y-2 text-sm text-[color:var(--c-text)]">
+						{item.outcomes.map((outcome) => (
+							<li class="flex gap-2">
+								<span class="mt-2 h-1.5 w-1.5 rounded-full bg-[color:var(--c-accent)]" aria-hidden="true"></span>
+								<span>{outcome}</span>
+							</li>
+						))}
+					</ul>
+					{item.image && (
+						<a
+							class="mt-6 block max-w-2xl"
+							href={item.url}
+							target="_blank"
+							rel="noreferrer"
+							aria-label={`Open ${item.title} site`}
+						>
+							<div class="mx-auto rounded-[20px] border border-[color:var(--c-border)] bg-[color:var(--c-surface-2)]/70 p-2 shadow-[0_24px_60px_-50px_rgba(15,23,42,0.6)]">
+								<div class="overflow-hidden rounded-[16px] border border-[color:var(--c-border)] bg-white">
+									<img
+										src={item.image}
+										alt={`${item.title} preview`}
+										class="h-full w-full object-cover"
+										loading="lazy"
+									/>
+								</div>
+							</div>
+						</a>
+					)}
+					{item.url && (
+						<a
+							class="link-underline mt-4 inline-flex text-sm font-semibold text-[color:var(--c-text)]"
+							href={item.url}
+							target="_blank"
+							rel="noreferrer"
+						>
+							View live site
+						</a>
+					)}
+				</article>
+			))}
+		</div>
+
+		<p class="mt-6 text-sm text-[color:var(--c-muted)]">{note}</p>
+	</div>
+</section>

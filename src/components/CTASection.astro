@@ -1,0 +1,27 @@
+﻿---
+const { primaryCta, secondaryCta } = Astro.props;
+---
+
+<section class="py-16">
+	<div class="mx-auto max-w-6xl px-6">
+		<div class="gradient-border gradient-border--animated">
+			<div class="rounded-[23px] border border-[color:var(--c-border)] bg-[color:var(--c-surface)]/90 p-8 text-center shadow-[0_30px_60px_-50px_rgba(15,23,42,0.6)] backdrop-blur-sm md:p-12">
+				<p class="text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--c-muted)]">Ready?</p>
+				<h2 class="mt-4 text-3xl font-semibold md:text-4xl">
+					Stop spending Sundays on admin.
+				</h2>
+				<p class="mt-4 text-sm text-[color:var(--c-muted)] md:text-base">
+					Book a quick call to see if this is a fit for your independent business.
+				</p>
+				<div class="mt-8 flex flex-wrap justify-center gap-4">
+					<a class="btn btn-primary text-sm" href={primaryCta.href}>
+						{primaryCta.label}
+					</a>
+					<a class="btn btn-secondary text-sm" href={secondaryCta.href}>
+						{secondaryCta.label}
+					</a>
+				</div>
+			</div>
+		</div>
+	</div>
+</section>

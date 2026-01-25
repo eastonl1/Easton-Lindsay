@@ -1,23 +1,58 @@
+﻿---
+import "../styles/global.css";
+---
 <!doctype html>
-<html lang="en">
+<html lang="en" data-theme="ocean">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width" />
 		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
 		<link rel="icon" href="/favicon.ico" />
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			rel="stylesheet"
+			href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600&family=Sora:wght@500;600;700&display=swap"
+		/>
 		<meta name="generator" content={Astro.generator} />
-		<title>Astro Basics</title>
+		<title>Easton Lindsay - Static Sites + Admin Automations</title>
+		<meta
+			name="description"
+			content="Fast, secure static websites and admin automations for independent professionals."
+		/>
+		<script is:inline>
+			(() => {
+				const root = document.documentElement;
+				const stored = localStorage.getItem("theme");
+				if (stored) root.dataset.theme = stored;
+				const applyTheme = (theme) => {
+					root.dataset.theme = theme;
+					localStorage.setItem("theme", theme);
+				};
+				const syncPressed = () => {
+					const active = root.dataset.theme || "ocean";
+					document.querySelectorAll("[data-theme-value]").forEach((el) => {
+						el.setAttribute(
+							"aria-pressed",
+							el.getAttribute("data-theme-value") === active ? "true" : "false"
+						);
+					});
+				};
+				document.addEventListener("click", (event) => {
+					const button = event.target.closest("[data-theme-value]");
+					if (!button) return;
+					applyTheme(button.getAttribute("data-theme-value"));
+					syncPressed();
+				});
+				if (document.readyState === "loading") {
+					document.addEventListener("DOMContentLoaded", syncPressed, { once: true });
+				} else {
+					syncPressed();
+				}
+			})();
+		</script>
 	</head>
-	<body>
+	<body class="min-h-screen">
 		<slot />
 	</body>
 </html>
-
-<style>
-	html,
-	body {
-		margin: 0;
-		width: 100%;
-		height: 100%;
-	}
-</style>
