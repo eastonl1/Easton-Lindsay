@@ -3,9 +3,7 @@ import Layout from "../layouts/Layout.astro";
 import Header from "../components/Header.astro";
 import Hero from "../components/Hero.astro";
 import ServiceCards from "../components/ServiceCards.astro";
-import ServicesSplit from "../components/ServicesSplit.astro";
 import Pricing from "../components/Pricing.astro";
-import ProcessSteps from "../components/ProcessSteps.astro";
 import FeaturedCaseStudy from "../components/FeaturedCaseStudy.astro";
 import FAQ from "../components/FAQ.astro";
 import ContactSection from "../components/ContactSection.astro";
@@ -16,60 +14,29 @@ const BOOKING_URL = "BOOKING_URL";
 const CONTACT_EMAIL = "hello@eastonlindsay.com";
 
 const hero = {
-	headline: "Fast, low-maintenance websites for independent professionals.",
+	headline: "Look professional online with a fast, low-maintenance website.",
 	subheadline:
-		"I build secure static sites that load instantly for self-employed professionals -- then I automate the admin work that steals your evenings.",
+		"I build clean, modern static sites that load instantly for self-employed professionals.",
 	primaryCta: { label: "Book a quick call", href: BOOKING_URL },
 	secondaryCta: { label: "View pricing", href: "#pricing" },
 	bullets: [
 		"Static-first: fast, secure, cheap hosting",
 		"Done-for-you setup + ongoing care",
-		"Automations that save hours per week",
 	],
 };
 
 const whoFor = {
 	statement:
-		"If you are self-employed and your business runs on reputation and referrals, your site should look credible and your admin should run itself.",
+		"If your business relies on trust, referrals, and credibility, this is for you.",
 	items: [
-		{ title: "Consultants & advisors", copy: "Thoughtful positioning and clear lead capture." },
-		{ title: "Accountants & bookkeepers", copy: "Trust-first messaging with clean intake workflows." },
-		{ title: "Therapists & coaches", copy: "Calm, professional sites with low-maintenance updates." },
-		{ title: "Small professional firms (2-10 people)", copy: "Shared admin systems that save the team time." },
+		{ title: "Consultants & advisors", copy: "" },
+		{ title: "Accountants & bookkeepers", copy: "" },
+		{ title: "Therapists & coaches", copy: "" },
+		{ title: "Small professional firms (2-10 people)", copy: "" },
 	],
 };
 
-const services = {
-	foundation: {
-		title: "Static site build that feels premium",
-		description: "A fast, secure web foundation that signals credibility for self-employed professionals.",
-		bullets: [
-			"5-7 page site (Home, About, Services, FAQs, Contact, etc.)",
-			"Copy structure + page layout",
-			"Analytics + basic SEO",
-			"Simple editing workflow (lightweight CMS or editable content)",
-			"Hosting + monitoring",
-		],
-	},
-	ops: {
-		title: "Admin automations that remove busywork",
-		description: "Workflows that keep leads warm and your CRM updated without manual chasing.",
-		bullets: [
-			"Lead capture -> structured intake",
-			"Auto follow-up sequences",
-			"Booking confirmations + reminders",
-			"CRM updates / spreadsheet logging",
-			"Invoice triggers / admin handoff",
-		],
-	},
-};
 
-const processSteps = [
-	{ title: "Quick call (15 min)", copy: "Clarify goals, timing, and current admin pain." },
-	{ title: "Draft structure + design direction", copy: "I map pages and craft a clean visual direction." },
-	{ title: "Build + review", copy: "You get weekly check-ins and a clear review flow." },
-	{ title: "Launch + optional automations", copy: "Site goes live with automation add-ons ready." },
-];
 
 const workExamples = [
 	{
@@ -125,9 +92,7 @@ const faqs = [
 			bullets={hero.bullets}
 		/>
 		<ServiceCards items={whoFor.items} statement={whoFor.statement} />
-		<ServicesSplit foundation={services.foundation} ops={services.ops} />
 		<Pricing bookingUrl={BOOKING_URL} email={CONTACT_EMAIL} />
-		<ProcessSteps steps={processSteps} />
 		<FeaturedCaseStudy
 			examples={workExamples}
 			note="Have a similar business? I will tailor it."

@@ -2,7 +2,7 @@
 const { examples, note } = Astro.props;
 ---
 
-<section class="py-16" id="work">
+<section class="section-reveal py-16" id="work">
 	<div class="mx-auto max-w-6xl px-6">
 		<div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
 			<div>
@@ -16,7 +16,7 @@ const { examples, note } = Astro.props;
 			</p>
 		</div>
 
-		<div class="mt-10 grid gap-6">
+		<div class="reveal-stagger mt-10 grid gap-6">
 			{examples.map((item) => (
 				<article class="rounded-[24px] border border-[color:var(--c-border)] bg-[color:var(--c-surface)] p-6 shadow-[0_30px_70px_-60px_rgba(15,23,42,0.6)] md:p-8">
 					<p class="text-xs font-semibold uppercase tracking-[0.3em] text-[color:var(--c-muted)]">Example</p>

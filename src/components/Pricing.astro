@@ -1,149 +1,84 @@
 ﻿---
 const { bookingUrl, email } = Astro.props;
 
-const packages = [
+const steps = [
 	{
-		name: "Static Site Foundation",
-		tagline: "A credible, fast website that does not need babysitting.",
-		price: "$4,000-$7,000 CAD",
-		bestFor: "Solo professionals who need a credible, fast website that does not require babysitting.",
+		title: "Free intro call or website audit",
+		price: "Free",
+		copy:
+			"We start with a short call or a quick Loom audit to understand your business and whether a new site would actually help.",
 		cta: { label: "Book a 15-minute call", href: bookingUrl },
+	},
+	{
+		title: "Professional static website",
+		price: "$1,200-$6,000 CAD",
+		copy:
+			"One-time build tailored to your services, content, and goals. You get a clear quote before any work begins.",
 		bullets: [
-			"5-7 page static site (Home, About, Services, FAQ, Contact)",
-			"Mobile-first design + fast load times",
+			"5-7 pages (Home, About, Services, FAQ, Contact)",
+			"Mobile-first design with fast load times",
 			"Basic SEO + analytics setup",
-			"Simple editing workflow (lightweight CMS or content files)",
-			"Hosting setup + monitoring",
+			"Simple editing workflow if you want to update content",
 		],
 	},
 	{
-		name: "Site + Admin Offload",
-		tagline: "Static site plus calm, organized admin workflows.",
-		price: "$7,500-$12,000 CAD",
-		bestFor: "Professionals losing time to email, follow-ups, and messy intake.",
-		cta: { label: "See if you're a fit", href: bookingUrl },
-		featured: true,
+		title: "Optional maintenance",
+		price: "$75/month",
+		copy:
+			"Ongoing updates, small changes, and support so you don't have to think about your site again.",
 		bullets: [
-			"Everything in Static Site Foundation",
-			"Intake form -> structured client data (spreadsheet/CRM)",
-			"Automated follow-ups + reminders",
-			"Booking confirmations + email templates",
-			"Admin handoff workflows (reduce manual copying/pasting)",
+			"Hosting included",
+			"Basic maintenance",
+			"Analytics reporting",
+			"Small content changes",
+			"Cancel anytime",
+			"Paid monthly",
 		],
 	},
-	{
-		name: "Keep-It-Running Care",
-		tagline: "Ongoing support so your site and workflows stay smooth.",
-		price: "$600-$1,500 CAD / month",
-		bestFor: "You want it handled, not on your to-do list.",
-		cta: { label: "Talk support options", href: bookingUrl },
-		bullets: [
-			"Hosting + uptime monitoring",
-			"Minor content updates",
-			"Automation monitoring + small tweaks",
-			"Quarterly check-in + recommendations",
-			"Priority support",
-		],
-	},
-];
-
-const comparisonRows = [
-	{ label: "Static site build", foundation: true, ops: true, care: false },
-	{ label: "Automation workflows", foundation: false, ops: true, care: true },
-	{ label: "Hosting + monitoring", foundation: true, ops: true, care: true },
-	{ label: "Content updates", foundation: false, ops: false, care: true },
-	{ label: "Quarterly check-ins", foundation: false, ops: false, care: true },
 ];
 ---
 
-<section class="py-16" id="pricing">
+<section class="section-reveal py-16" id="pricing">
 	<div class="mx-auto max-w-6xl px-6">
 		<div class="flex flex-col gap-4 md:flex-row md:items-end md:justify-between">
 			<div>
-				<p class="text-sm font-semibold uppercase tracking-[0.3em] text-[color:var(--c-muted)]">Pricing</p>
+				<p class="text-sm font-semibold uppercase tracking-[0.3em] text-[color:var(--c-muted)]">How it works</p>
 				<h2 class="mt-3 text-3xl font-semibold md:text-4xl">
-					Packages built for Canadian independent professionals.
+					A simple, three-step path to launch.
 				</h2>
 			</div>
 			<p class="max-w-sm text-sm text-[color:var(--c-muted)]">
-				Clear packages, fixed ranges, and practical outcomes. No hourly rates.
+				Clear pricing ranges, a fixed quote before work begins, and optional care after launch.
 			</p>
 		</div>
 
-		<div class="mt-10 grid gap-6 lg:grid-cols-3">
-			{packages.map((plan) => (
-				<article class={`relative rounded-[24px] border border-[color:var(--c-border)] bg-[color:var(--c-surface)] p-6 shadow-[0_30px_65px_-55px_rgba(15,23,42,0.55)] ${plan.featured ? "ring-1 ring-[color:var(--c-accent)]" : ""}`}>
-					{plan.featured && (
-						<span class="absolute right-5 top-5 rounded-full bg-[color:var(--c-accent-soft)] px-3 py-1 text-[0.65rem] font-semibold uppercase tracking-[0.2em] text-[color:var(--c-text)]">
-							Most popular
-						</span>
+		<div class="reveal-stagger mt-10 grid gap-6 md:grid-cols-3">
+			{steps.map((step) => (
+				<article class="rounded-[24px] border border-[color:var(--c-border)] bg-[color:var(--c-surface)] p-6 shadow-[0_30px_65px_-55px_rgba(15,23,42,0.55)]">
+					<h3 class="text-2xl font-semibold md:text-3xl">{step.title}</h3>
+					<p class="mt-3 text-2xl font-semibold text-[color:var(--c-text)]">{step.price}</p>
+					<p class="mt-3 text-sm text-[color:var(--c-muted)]">{step.copy}</p>
+					{step.bullets && (
+						<ul class="mt-4 space-y-2 text-sm text-[color:var(--c-text)]">
+							{step.bullets.map((bullet) => (
+								<li class="flex gap-2">
+									<span class="mt-2 h-1.5 w-1.5 rounded-full bg-[color:var(--c-accent)]" aria-hidden="true"></span>
+									<span>{bullet}</span>
+								</li>
+							))}
+						</ul>
 					)}
-					<h3 class="text-xl font-semibold">{plan.name}</h3>
-					<p class="mt-1 text-sm text-[color:var(--c-muted)]">{plan.tagline}</p>
-					<p class="mt-4 text-3xl font-semibold text-[color:var(--c-text)]">
-						{plan.price}
-					</p>
-					<ul class="mt-5 space-y-2 text-sm text-[color:var(--c-text)]">
-						{plan.bullets.map((bullet) => (
-							<li class="flex gap-2">
-								<span class="mt-2 h-1.5 w-1.5 rounded-full bg-[color:var(--c-primary)]" aria-hidden="true"></span>
-								<span>{bullet}</span>
-							</li>
-						))}
-					</ul>
-					<p class="mt-5 text-sm text-[color:var(--c-muted)]">
-						<span class="font-semibold text-[color:var(--c-text)]">Best for:</span> {plan.bestFor}
-					</p>
-					<a class={`btn ${plan.featured ? "btn-primary" : "btn-secondary"} mt-6 w-full text-sm`} href={plan.cta.href}>
-						{plan.cta.label}
-					</a>
 				</article>
 			))}
 		</div>
 
-		<div class="mt-10 rounded-[24px] border border-[color:var(--c-border)] bg-[color:var(--c-surface)] p-6 shadow-[0_24px_60px_-50px_rgba(15,23,42,0.5)]">
-			<p class="text-sm font-semibold uppercase tracking-[0.3em] text-[color:var(--c-muted)]">Quick compare</p>
-			<div class="mt-4 grid gap-3 text-sm">
-				<div class="hidden grid-cols-[1.4fr_repeat(3,1fr)] items-center gap-4 text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--c-muted)] md:grid">
-					<span>Outcome</span>
-					<span>Foundation</span>
-					<span>Site + Ops</span>
-					<span>Care</span>
-				</div>
-				{comparisonRows.map((row) => (
-					<div class="grid gap-2 rounded-[16px] border border-[color:var(--c-border)] bg-[color:var(--c-surface-2)]/70 p-4 md:grid-cols-[1.4fr_repeat(3,1fr)] md:items-center md:gap-4">
-						<p class="font-semibold text-[color:var(--c-text)]">{row.label}</p>
-						<div class="flex items-center justify-between text-sm md:block">
-							<span class="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--c-muted)] md:hidden">Foundation</span>
-							<span class="font-semibold text-[color:var(--c-text)]">{row.foundation ? "Included" : "-"}</span>
-						</div>
-						<div class="flex items-center justify-between text-sm md:block">
-							<span class="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--c-muted)] md:hidden">Site + Ops</span>
-							<span class="font-semibold text-[color:var(--c-text)]">{row.ops ? "Included" : "-"}</span>
-						</div>
-						<div class="flex items-center justify-between text-sm md:block">
-							<span class="text-xs font-semibold uppercase tracking-[0.2em] text-[color:var(--c-muted)] md:hidden">Care</span>
-							<span class="font-semibold text-[color:var(--c-text)]">{row.care ? "Included" : "-"}</span>
-						</div>
-					</div>
-				))}
-			</div>
-		</div>
-
 		<div class="mt-6 text-sm text-[color:var(--c-muted)]">
-			<p>Final pricing depends on page count, copy readiness, and workflow complexity.</p>
-			<p class="mt-2">I'll confirm a fixed quote after a 15-minute call.</p>
-		</div>
-
-		<div class="mt-8 rounded-[24px] border border-[color:var(--c-border)] bg-[color:var(--c-surface)] p-6 text-center shadow-[0_24px_60px_-50px_rgba(15,23,42,0.5)]">
-			<h3 class="text-2xl font-semibold md:text-3xl">Stop spending Sundays on admin.</h3>
-			<p class="mt-3 text-sm text-[color:var(--c-muted)]">
-				Clear next steps and a fixed quote after a quick call.
+			<p>
+				Website projects are a one-time build, typically ranging from $1,200-$6,000 CAD depending on size and content.
 			</p>
-			<div class="mt-6 flex flex-wrap justify-center gap-4">
-				<a class="btn btn-primary text-sm" href={bookingUrl}>Book a 15-minute call</a>
-				<a class="btn btn-secondary text-sm" href={`mailto:${email}`}>Email me</a>
-			</div>
+			<p class="mt-2">
+				You will always get a clear quote before any work begins. Maintenance is optional at $75/month.
+			</p>
 		</div>
 	</div>
 </section>

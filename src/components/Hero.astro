@@ -2,7 +2,7 @@
 const { headline, subheadline, primaryCta, secondaryCta, bullets } = Astro.props;
 ---
 
-<section class="relative overflow-hidden pb-16 pt-8 lg:pt-12" id="about">
+<section class="section-reveal relative overflow-hidden pb-16 pt-8 lg:pt-12" id="about">
 	<div class="absolute inset-0">
 		<div
 			class="absolute -top-32 right-[-10%] h-[420px] w-[420px] rounded-full bg-[radial-gradient(circle, color-mix(in_srgb,var(--c-accent)_35%,transparent), transparent 65%)] blur-3xl opacity-70"
@@ -14,7 +14,7 @@ const { headline, subheadline, primaryCta, secondaryCta, bullets } = Astro.props
 	</div>
 
 	<div class="relative mx-auto max-w-6xl px-6">
-		<div class="grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
+		<div class="reveal-stagger grid items-center gap-12 lg:grid-cols-[1.05fr_0.95fr]">
 			<div>
 				<p class="inline-flex items-center rounded-full border border-[color:var(--c-border)] bg-white/80 px-3 py-1 text-xs font-semibold uppercase tracking-[0.24em] text-[color:var(--c-muted)]">
 					For independent professionals
@@ -53,39 +53,20 @@ const { headline, subheadline, primaryCta, secondaryCta, bullets } = Astro.props
 				<div class="gradient-border">
 					<div class="relative h-[360px] rounded-[23px] border border-[color:var(--c-border)] bg-[color:var(--c-surface)]/80 p-6 shadow-[0_35px_90px_-70px_rgba(15,23,42,0.6)] backdrop-blur-sm">
 						<div class="absolute inset-0 rounded-[23px] accent-gradient opacity-80"></div>
-						<div class="relative z-10 h-full rounded-[18px] border border-[color:var(--c-border)] bg-[linear-gradient(180deg, color-mix(in_srgb,var(--c-surface)_70%,transparent), color-mix(in_srgb,var(--c-accent-soft)_35%,transparent))]">
-							<svg
-								class="absolute bottom-0 left-0 h-40 w-full"
-								viewBox="0 0 600 200"
-								fill="none"
-								aria-hidden="true"
-							>
-								<path
-									d="M0 140C120 90 210 170 330 140C450 110 500 50 600 70V200H0V140Z"
-									fill="url(#waveFill)"
-								/>
-								<defs>
-									<linearGradient id="waveFill" x1="0" x2="600" y1="0" y2="200" gradientUnits="userSpaceOnUse">
-										<stop stop-color="color-mix(in srgb, var(--c-primary) 70%, white 30%)" />
-										<stop offset="1" stop-color="color-mix(in srgb, var(--c-accent) 70%, white 30%)" />
-									</linearGradient>
-								</defs>
-							</svg>
-						</div>
 					</div>
 				</div>
 
-				<div class="float-slow absolute left-6 top-6 w-48 rounded-2xl border border-[color:var(--c-border)] bg-white/90 p-4 text-sm shadow-[0_20px_40px_-32px_rgba(15,23,42,0.6)]">
+				<div class="float-slow absolute left-8 top-12 w-52 rounded-2xl border border-[color:var(--c-border)] bg-white/85 p-4 text-sm shadow-[0_20px_40px_-32px_rgba(15,23,42,0.55)] backdrop-blur-sm">
 					<p class="font-semibold text-[color:var(--c-text)]">Static-first speed</p>
 					<p class="mt-1 text-[color:var(--c-muted)]">Instant load times that feel premium.</p>
 				</div>
 
-				<div class="float-slow delay-1 absolute right-4 top-24 w-52 rounded-2xl border border-[color:var(--c-border)] bg-white/90 p-4 text-sm shadow-[0_20px_40px_-32px_rgba(15,23,42,0.6)]">
-					<p class="font-semibold text-[color:var(--c-text)]">Less admin</p>
-					<p class="mt-1 text-[color:var(--c-muted)]">Automations handle intake and follow-ups.</p>
+				<div class="float-slow delay-1 absolute right-8 top-28 w-56 rounded-2xl border border-[color:var(--c-border)] bg-white/85 p-4 text-sm shadow-[0_20px_40px_-32px_rgba(15,23,42,0.55)] backdrop-blur-sm">
+					<p class="font-semibold text-[color:var(--c-text)]">Trust-first presence</p>
+					<p class="mt-1 text-[color:var(--c-muted)]">Clean, professional design that signals credibility.</p>
 				</div>
 
-				<div class="float-slow delay-2 absolute bottom-6 left-16 w-56 rounded-2xl border border-[color:var(--c-border)] bg-white/90 p-4 text-sm shadow-[0_20px_40px_-32px_rgba(15,23,42,0.6)]">
+				<div class="float-slow delay-2 absolute bottom-8 left-16 w-60 rounded-2xl border border-[color:var(--c-border)] bg-white/85 p-4 text-sm shadow-[0_20px_40px_-32px_rgba(15,23,42,0.55)] backdrop-blur-sm">
 					<p class="font-semibold text-[color:var(--c-text)]">Light maintenance</p>
 					<p class="mt-1 text-[color:var(--c-muted)]">Secure hosting with ongoing care.</p>
 				</div>
