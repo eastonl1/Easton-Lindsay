@@ -7,18 +7,16 @@ const steps = [
 		price: "Free",
 		copy:
 			"We start with a short call or a quick Loom audit to understand your business and whether a new site would actually help.",
-		cta: { label: "Book a 15-minute call", href: bookingUrl },
+		bullets: ["Fixed quote", "Fit to your needs"],
 	},
 	{
-		title: "Professional static website",
+		title: "Custom professional website",
 		price: "$1,200-$6,000 CAD",
 		copy:
 			"One-time build tailored to your services, content, and goals. You get a clear quote before any work begins.",
 		bullets: [
-			"5-7 pages (Home, About, Services, FAQ, Contact)",
-			"Mobile-first design with fast load times",
-			"Basic SEO + analytics setup",
-			"Simple editing workflow if you want to update content",
+			"5–7 page professional site tailored to your services",
+			"Fast, mobile-friendly, and easy to use",
 		],
 	},
 	{
@@ -29,10 +27,9 @@ const steps = [
 		bullets: [
 			"Hosting included",
 			"Basic maintenance",
-			"Analytics reporting",
+			"Basic traffic insights",
 			"Small content changes",
-			"Cancel anytime",
-			"Paid monthly",
+			"Paid Monthly, Cancel anytime",
 		],
 	},
 ];
@@ -47,14 +44,11 @@ const steps = [
 					A simple, three-step path to launch.
 				</h2>
 			</div>
-			<p class="max-w-sm text-sm text-[color:var(--c-muted)]">
-				Clear pricing ranges, a fixed quote before work begins, and optional care after launch.
-			</p>
 		</div>
 
 		<div class="reveal-stagger mt-10 grid gap-6 md:grid-cols-3">
 			{steps.map((step) => (
-				<article class="rounded-[24px] border border-[color:var(--c-border)] bg-[color:var(--c-surface)] p-6 shadow-[0_30px_65px_-55px_rgba(15,23,42,0.55)]">
+				<article class="rounded-[24px] border border-[color:var(--c-border)] bg-[color:var(--c-surface)] p-6 shadow-[0_30px_65px_-55px_rgba(15,23,42,0.55)] transition-colors duration-200 hover:border-[color:var(--c-accent)]">
 					<h3 class="text-2xl font-semibold md:text-3xl">{step.title}</h3>
 					<p class="mt-3 text-2xl font-semibold text-[color:var(--c-text)]">{step.price}</p>
 					<p class="mt-3 text-sm text-[color:var(--c-muted)]">{step.copy}</p>
@@ -72,13 +66,5 @@ const steps = [
 			))}
 		</div>
 
-		<div class="mt-6 text-sm text-[color:var(--c-muted)]">
-			<p>
-				Website projects are a one-time build, typically ranging from $1,200-$6,000 CAD depending on size and content.
-			</p>
-			<p class="mt-2">
-				You will always get a clear quote before any work begins. Maintenance is optional at $75/month.
-			</p>
-		</div>
 	</div>
 </section>

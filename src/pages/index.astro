@@ -5,9 +5,7 @@ import Hero from "../components/Hero.astro";
 import ServiceCards from "../components/ServiceCards.astro";
 import Pricing from "../components/Pricing.astro";
 import FeaturedCaseStudy from "../components/FeaturedCaseStudy.astro";
-import FAQ from "../components/FAQ.astro";
 import ContactSection from "../components/ContactSection.astro";
-import CTASection from "../components/CTASection.astro";
 import Footer from "../components/Footer.astro";
 
 const BOOKING_URL = "BOOKING_URL";
@@ -53,32 +51,6 @@ const workExamples = [
 	},
 ];
 
-const faqs = [
-	{
-		q: "Why static instead of WordPress?",
-		a: "Static sites are faster, more secure, and cheaper to host. They are perfect for independent professionals who want reliability without constant updates.",
-	},
-	{
-		q: "Can I edit my site myself?",
-		a: "Yes. I set up a lightweight editing flow so you can update copy or add testimonials without touching code.",
-	},
-	{
-		q: "What tools do you automate with?",
-		a: "Common tools include Google Workspace, Calendly, Airtable, Notion, HubSpot, or simple spreadsheets. We pick what fits your current stack.",
-	},
-	{
-		q: "How long does it take?",
-		a: "Most sites launch in 3-5 weeks. Automations typically add 1-2 weeks depending on complexity.",
-	},
-	{
-		q: "Do you offer ongoing support?",
-		a: "Yes. The Keep-It-Running retainer covers updates, monitoring, and workflow tweaks each month.",
-	},
-	{
-		q: "What if I already have a website?",
-		a: "We can rebuild or migrate what is useful, then layer in faster pages and cleaner admin workflows.",
-	},
-];
 ---
 
 <Layout>
@@ -93,16 +65,8 @@ const faqs = [
 		/>
 		<ServiceCards items={whoFor.items} statement={whoFor.statement} />
 		<Pricing bookingUrl={BOOKING_URL} email={CONTACT_EMAIL} />
-		<FeaturedCaseStudy
-			examples={workExamples}
-			note="Have a similar business? I will tailor it."
-		/>
-		<FAQ items={faqs} />
-		<ContactSection bookingUrl={BOOKING_URL} email={CONTACT_EMAIL} />
-		<CTASection
-			primaryCta={{ label: "Book a quick call", href: BOOKING_URL }}
-			secondaryCta={{ label: "See pricing", href: "#pricing" }}
-		/>
+		<FeaturedCaseStudy examples={workExamples} />
+		<ContactSection email={CONTACT_EMAIL} />
 	</main>
 	<Footer />
 </Layout>

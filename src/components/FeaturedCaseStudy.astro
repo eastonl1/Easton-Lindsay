@@ -11,9 +11,6 @@ const { examples, note } = Astro.props;
 					Proof of outcomes for self-employed teams.
 				</h2>
 			</div>
-			<p class="max-w-sm text-sm text-[color:var(--c-muted)]">
-				Realistic examples until your case studies are published.
-			</p>
 		</div>
 
 		<div class="reveal-stagger mt-10 grid gap-6">
@@ -64,6 +61,6 @@ const { examples, note } = Astro.props;
 			))}
 		</div>
 
-		<p class="mt-6 text-sm text-[color:var(--c-muted)]">{note}</p>
+		{note && <p class="mt-6 text-sm text-[color:var(--c-muted)]">{note}</p>}
 	</div>
 </section>
