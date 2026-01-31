@@ -8,18 +8,17 @@ import FeaturedCaseStudy from "../components/FeaturedCaseStudy.astro";
 import ContactSection from "../components/ContactSection.astro";
 import Footer from "../components/Footer.astro";
 
-const BOOKING_URL = "BOOKING_URL";
-const CONTACT_EMAIL = "hello@eastonlindsay.com";
-
 const hero = {
 	headline: "Look professional online with a fast, low-maintenance website.",
 	subheadline:
-		"I build clean, modern static sites that load instantly for self-employed professionals.",
-	primaryCta: { label: "Book a quick call", href: BOOKING_URL },
-	secondaryCta: { label: "View pricing", href: "#pricing" },
+		"I build fast, professional websites that help independent professionals look credible online without ongoing hassle.",
+	primaryCta: { label: "Send a message", href: "#contact" },
+	secondaryCta: { label: "How it works", href: "#pricing" },
 	bullets: [
-		"Static-first: fast, secure, cheap hosting",
-		"Done-for-you setup + ongoing care",
+		"Built with modern, secure web standards",
+		"Mobile-friendly",
+		"Used by independent professionals in Canada",
+		"Designed for long-term stability",
 	],
 };
 
@@ -30,11 +29,9 @@ const whoFor = {
 		{ title: "Consultants & advisors", copy: "" },
 		{ title: "Accountants & bookkeepers", copy: "" },
 		{ title: "Therapists & coaches", copy: "" },
-		{ title: "Small professional firms (2-10 people)", copy: "" },
+		{ title: "Small professional firms", copy: "" },
 	],
 };
-
-
 
 const workExamples = [
 	{
@@ -45,12 +42,10 @@ const workExamples = [
 		image: "/images/Case%20Study%20Financial%20Decisions.png",
 		outcomes: [
 			"Static Astro build for instant performance",
-			"Newsletter signup integrated to capture leads",
 			"Hosting, maintenance, and analytics setup",
 		],
 	},
 ];
-
 ---
 
 <Layout>
@@ -64,9 +59,9 @@ const workExamples = [
 			bullets={hero.bullets}
 		/>
 		<ServiceCards items={whoFor.items} statement={whoFor.statement} />
-		<Pricing bookingUrl={BOOKING_URL} email={CONTACT_EMAIL} />
+		<Pricing />
+		<ContactSection />
 		<FeaturedCaseStudy examples={workExamples} />
-		<ContactSection email={CONTACT_EMAIL} />
 	</main>
 	<Footer />
 </Layout>

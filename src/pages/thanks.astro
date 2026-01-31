@@ -1,0 +1,23 @@
+﻿---
+import Layout from "../layouts/Layout.astro";
+import Header from "../components/Header.astro";
+import Footer from "../components/Footer.astro";
+---
+
+<Layout>
+	<Header />
+	<main>
+		<section class="section-reveal py-16">
+			<div class="mx-auto max-w-4xl px-6">
+				<div class="rounded-[24px] border border-[color:var(--c-border)] bg-[color:var(--c-surface)] p-8 text-center shadow-[0_30px_70px_-60px_rgba(15,23,42,0.6)] md:p-12">
+					<h1 class="text-3xl font-semibold md:text-4xl">Thank You!</h1>
+					<p class="mt-4 text-sm text-[color:var(--c-muted)] md:text-base">
+						I'll reply within 1–2 business days.
+					</p>
+					<a class="btn btn-primary mt-6 text-sm" href="/">Back to homepage</a>
+				</div>
+			</div>
+		</section>
+	</main>
+	<Footer />
+</Layout>

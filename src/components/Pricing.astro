@@ -1,35 +1,27 @@
 ﻿---
-const { bookingUrl, email } = Astro.props;
-
 const steps = [
 	{
-		title: "Free intro call or website audit",
+		title: "Clarity First",
 		price: "Free",
 		copy:
-			"We start with a short call or a quick Loom audit to understand your business and whether a new site would actually help.",
-		bullets: ["Fixed quote", "Fit to your needs"],
+			"We start with a short call or a quick Loom review to understand your business and whether a new site would actually help.\n\nIf it’s not a good fit, I’ll tell you.",
 	},
 	{
 		title: "Custom professional website",
-		price: "$1,200-$6,000 CAD",
+		price: "$1,200-$6,000 CAD (one-time)",
 		copy:
-			"One-time build tailored to your services, content, and goals. You get a clear quote before any work begins.",
+			"A custom-built website tailored to your services, content, and goals. You’ll receive a clear, fixed quote before any work begins.",
 		bullets: [
-			"5–7 page professional site tailored to your services",
-			"Fast, mobile-friendly, and easy to use",
+			"Typically 5–7 pages, mobile-friendly, fast, and easy to update.",
 		],
 	},
 	{
-		title: "Optional maintenance",
+		title: "Ongoing care (optional)",
 		price: "$75/month",
 		copy:
-			"Ongoing updates, small changes, and support so you don't have to think about your site again.",
+			"If you want hands-off peace of mind, ongoing care is available after launch. I handle hosting, small updates, and basic monitoring so you don’t have to think about your site again.",
 		bullets: [
-			"Hosting included",
-			"Basic maintenance",
-			"Basic traffic insights",
-			"Small content changes",
-			"Paid Monthly, Cancel anytime",
+			"Cancel anytime. No long-term commitment.",
 		],
 	},
 ];
@@ -46,25 +38,36 @@ const steps = [
 			</div>
 		</div>
 
-		<div class="reveal-stagger mt-10 grid gap-6 md:grid-cols-3">
-			{steps.map((step) => (
-				<article class="rounded-[24px] border border-[color:var(--c-border)] bg-[color:var(--c-surface)] p-6 shadow-[0_30px_65px_-55px_rgba(15,23,42,0.55)] transition-colors duration-200 hover:border-[color:var(--c-accent)]">
-					<h3 class="text-2xl font-semibold md:text-3xl">{step.title}</h3>
-					<p class="mt-3 text-2xl font-semibold text-[color:var(--c-text)]">{step.price}</p>
-					<p class="mt-3 text-sm text-[color:var(--c-muted)]">{step.copy}</p>
-					{step.bullets && (
-						<ul class="mt-4 space-y-2 text-sm text-[color:var(--c-text)]">
-							{step.bullets.map((bullet) => (
-								<li class="flex gap-2">
-									<span class="mt-2 h-1.5 w-1.5 rounded-full bg-[color:var(--c-accent)]" aria-hidden="true"></span>
-									<span>{bullet}</span>
-								</li>
-							))}
-						</ul>
-					)}
+		<div class="reveal-stagger mt-10 grid items-stretch gap-6 md:grid-cols-3">
+			{steps.map((step, index) => (
+				<article
+					class={`rounded-[24px] border border-[color:var(--c-border)] bg-[color:var(--c-surface)] p-7 md:p-8 shadow-[0_30px_65px_-55px_rgba(15,23,42,0.55)] transition-colors duration-200 hover:border-[color:var(--c-accent)] ${
+						index === 1
+							? "md:-translate-y-3 md:z-20"
+							: index === 2
+								? "md:-translate-y-6 md:z-30"
+								: "md:z-10"
+					}`}
+				>
+					<div class="space-y-3">
+						<h3 class="text-2xl font-semibold md:text-3xl">{step.title}</h3>
+						<p class="text-xl font-semibold leading-tight text-[color:var(--c-text)]">{step.price}</p>
+						<p class="whitespace-pre-line text-sm leading-relaxed text-[color:var(--c-muted)]">{step.copy}</p>
+						{step.bullets && (
+							<ul class="space-y-2 text-sm leading-relaxed text-[color:var(--c-muted)]">
+								{step.bullets.map((bullet) => (
+									<li class="flex gap-2">
+										<span class="mt-2 h-1.5 w-1.5 rounded-full bg-[color:var(--c-accent)]/70" aria-hidden="true"></span>
+										<span>{bullet}</span>
+									</li>
+								))}
+							</ul>
+						)}
+					</div>
 				</article>
 			))}
 		</div>
 
 	</div>
 </section>
+

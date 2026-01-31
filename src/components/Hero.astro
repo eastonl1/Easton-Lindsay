@@ -1,5 +1,13 @@
 ﻿---
-const { headline, subheadline, primaryCta, secondaryCta, bullets } = Astro.props;
+interface Props {
+	headline: string;
+	subheadline: string;
+	primaryCta: { label: string; href: string };
+	secondaryCta: { label: string; href: string };
+	bullets: string[];
+}
+
+const { headline, subheadline, primaryCta, secondaryCta, bullets } = Astro.props as Props;
 ---
 
 <section class="section-reveal relative overflow-hidden pb-16 pt-8 lg:pt-12" id="about">
@@ -56,21 +64,37 @@ const { headline, subheadline, primaryCta, secondaryCta, bullets } = Astro.props
 					</div>
 				</div>
 
-				<div class="float-slow absolute left-8 top-12 w-52 rounded-2xl border border-[color:var(--c-border)] bg-white/85 p-4 text-sm shadow-[0_20px_40px_-32px_rgba(15,23,42,0.55)] backdrop-blur-sm">
-					<p class="font-semibold text-[color:var(--c-text)]">Static-first speed</p>
+				<div class="float-slow absolute left-8 top-12 hidden w-52 rounded-2xl border border-[color:var(--c-border)] bg-white/85 p-4 text-sm shadow-[0_20px_40px_-32px_rgba(15,23,42,0.55)] backdrop-blur-sm md:block">
+					<p class="font-semibold text-[color:var(--c-text)]">Quick Load Times</p>
 					<p class="mt-1 text-[color:var(--c-muted)]">Instant load times that feel premium.</p>
 				</div>
 
-				<div class="float-slow delay-1 absolute right-8 top-28 w-56 rounded-2xl border border-[color:var(--c-border)] bg-white/85 p-4 text-sm shadow-[0_20px_40px_-32px_rgba(15,23,42,0.55)] backdrop-blur-sm">
-					<p class="font-semibold text-[color:var(--c-text)]">Trust-first presence</p>
+				<div class="float-slow delay-1 absolute right-8 top-28 hidden w-56 rounded-2xl border border-[color:var(--c-border)] bg-white/85 p-4 text-sm shadow-[0_20px_40px_-32px_rgba(15,23,42,0.55)] backdrop-blur-sm md:block">
+					<p class="font-semibold text-[color:var(--c-text)]">Built for Trust</p>
 					<p class="mt-1 text-[color:var(--c-muted)]">Clean, professional design that signals credibility.</p>
 				</div>
 
-				<div class="float-slow delay-2 absolute bottom-8 left-16 w-60 rounded-2xl border border-[color:var(--c-border)] bg-white/85 p-4 text-sm shadow-[0_20px_40px_-32px_rgba(15,23,42,0.55)] backdrop-blur-sm">
-					<p class="font-semibold text-[color:var(--c-text)]">Light maintenance</p>
+				<div class="float-slow delay-2 absolute bottom-8 left-16 hidden w-60 rounded-2xl border border-[color:var(--c-border)] bg-white/85 p-4 text-sm shadow-[0_20px_40px_-32px_rgba(15,23,42,0.55)] backdrop-blur-sm md:block">
+					<p class="font-semibold text-[color:var(--c-text)]">Low Maintenance</p>
 					<p class="mt-1 text-[color:var(--c-muted)]">Secure hosting with ongoing care.</p>
+				</div>
+
+				<div class="mt-6 grid gap-3 text-sm text-[color:var(--c-muted)] md:hidden">
+					<div class="rounded-2xl border border-[color:var(--c-border)] bg-white/85 p-4 shadow-[0_18px_40px_-32px_rgba(15,23,42,0.45)]">
+						<p class="font-semibold text-[color:var(--c-text)]">Quick Load Times</p>
+						<p class="mt-1">Instant load times that feel premium.</p>
+					</div>
+					<div class="rounded-2xl border border-[color:var(--c-border)] bg-white/85 p-4 shadow-[0_18px_40px_-32px_rgba(15,23,42,0.45)]">
+						<p class="font-semibold text-[color:var(--c-text)]">Built for Trust</p>
+						<p class="mt-1">Clean, professional design that signals credibility.</p>
+					</div>
+					<div class="rounded-2xl border border-[color:var(--c-border)] bg-white/85 p-4 shadow-[0_18px_40px_-32px_rgba(15,23,42,0.45)]">
+						<p class="font-semibold text-[color:var(--c-text)]">Low Maintenance</p>
+						<p class="mt-1">Secure hosting with ongoing care.</p>
+					</div>
 				</div>
 			</div>
 		</div>
 	</div>
 </section>
+
